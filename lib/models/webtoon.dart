@@ -1,3 +1,5 @@
+// cspell:ignore Webtoon
+
 class WebtoonModel {
   final String title, thumb, id;
 

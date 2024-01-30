@@ -1,4 +1,4 @@
-// cspell:ignore naver, webtoon, toons, titlelist, toon
+// cspell:ignore naver, webtoon, toons, titlelist, toon, naver, referer
 
 import 'dart:convert';
 
@@ -6,11 +6,14 @@ import 'package:http/http.dart' as http;
 import 'package:naver_webtoon/models/webtoon.dart';
 
 class ApiService {
-  final String baseUrl = "https://comic.naver.com/api";
-  final String dailyToonsList = "webtoon/titlelist/weekday?order=user";
-  final String webtoon = "article/list?titleId=819217&page=1";
+  static const referer = 'Referer';
+  static const naverWebtoonReferer = 'https://comic.naver.com';
 
-  Future<List<WebtoonModel>> getDailyToonsList() async {
+  static const String baseUrl = "https://comic.naver.com/api";
+  static const String dailyToonsList = "webtoon/titlelist/weekday?order=user";
+  static const String webtoon = "article/list?titleId=819217&page=1";
+
+  static Future<List<WebtoonModel>> getDailyToonsList() async {
     List<WebtoonModel> dailyToons = [];
     final url = Uri.parse('$baseUrl/$dailyToonsList');
     final res = await http.get(url);
