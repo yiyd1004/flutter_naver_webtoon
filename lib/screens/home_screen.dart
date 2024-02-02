@@ -34,9 +34,6 @@ class HomeScreen extends StatelessWidget {
           if (snapshot.hasData) {
             return Column(
               children: [
-                const SizedBox(
-                  height: 50,
-                ),
                 Expanded(
                   child: makeList(snapshot),
                 ),
@@ -57,9 +54,9 @@ class HomeScreen extends StatelessWidget {
         vertical: 10,
         horizontal: 20,
       ),
-      scrollDirection: Axis.horizontal,
+      scrollDirection: Axis.vertical,
       separatorBuilder: (context, index) => const SizedBox(
-        width: 40,
+        height: 40,
       ),
       itemCount: snapshot.data!.length,
       itemBuilder: (context, index) {
